@@ -21,7 +21,6 @@
   }
 
   .main__container {
-
     background: white;
     display: grid;
     grid-template-areas:
@@ -75,7 +74,6 @@
     }
     &__conformism {
       @include createTile(155px, #E8EBED, conformism);
-
     }
 
     &__our_yellow_staff {
@@ -110,17 +108,11 @@
         margin-bottom: 2em;
       }
 
-      &__wrapper__list__item__span_left {
-
-      }
-
       &__wrapper__list__item__span_right {
         float: right;
       }
-
     }
     &__leader {
-
       @include createTile(155px, #FFAA87, leader);
     }
     &__but {
@@ -195,28 +187,6 @@
         @include createTile(100.5px, #A2A9B7, feeling);
         color: white;
       }
-    }
-
-    &__genius {
-
-      @include createTile(210.98px, #A2A9B7, genius);
-      color: white;
-      &__text {
-        text-align: center;
-        font-size: 18px;
-        line-height: 26px;
-        padding: 30px 46px 53px 25px;
-      }
-    }
-    &__moreno {
-      @include createTile(102px, #A2A9B7, moreno);
-      color: white;
-
-    }
-    &__feeling {
-
-      @include createTile(102px, #A2A9B7, feeling);
-      color: white;
     }
 
     &__staff {
