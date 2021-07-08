@@ -1,0 +1,35 @@
+@import "variables";
+
+@mixin createHeaderFooter(){
+  width: 100%;
+  height: $header-footer-height;
+  background: $header-footer-background;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__text {
+    font-size: 24px;
+  }
+}
+
+@mixin createTile($height, $background, $gridArea: area){
+  background: $background;
+  height: $height;
+  grid-area: $gridArea;
+}
+
+@mixin textFlexEnd{
+  display: flex;
+  align-items: flex-end;
+  padding: 15px;
+  font-weight: normal;
+}
+
+@mixin chatMessage(){
+  display: inline-block;
+  max-width: 470px;
+  margin-left: 18px;
+  background: #F1F3F5;
+  line-height: 24px;
+  border-radius: 2px;
+}

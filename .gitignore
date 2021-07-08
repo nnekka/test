@@ -1,0 +1,4 @@
+node_modules/
+dist/
+.editorconfig
+package-lock.json
