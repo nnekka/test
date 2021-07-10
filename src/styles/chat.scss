@@ -1,12 +1,6 @@
 @import "variables";
 @import "mixins";
-.square {
-  border: $border;
-  width: 10px;
-  height: 10px;
-  transform: rotate(45deg);
-  background: #F1F3F5;
-}
+
 
 
 .chat {
@@ -73,18 +67,43 @@
   }
 
   &__field__correspondence__list__left_message__msg {
-
     padding: 15px 15px 7px 15px;
     @include chatMessage();
-
   }
 
   &__field__correspondence__list__right_message__msg {
-
     padding: 15px 15px 7px 15px;
     @include chatMessage();
     margin-right: 18px;
   }
+
+  // -------------- CHAT MESSAGE TAIL START -------------- //
+
+  .msg_tail_left {
+    position: relative;
+  }
+  .msg_tail_left:after {
+    content: '';
+    position: absolute;
+    left: -20px; top: -10px;
+    border: 5px solid transparent;
+    border-top: 5px solid #F1F3F5;
+    border-right: 5px solid #F1F3F5;
+  }
+
+  .msg_tail_right {
+    position: relative;
+  }
+  .msg_tail_right:after {
+    content: '';
+    position: absolute;
+    right: -20px; top: -10px;
+    border: 5px solid transparent;
+    border-top: 5px solid #F1F3F5;
+    border-left: 5px solid #F1F3F5;
+  }
+
+  // -------------- CHAT MESSAGE TAIL END -------------- //
 
   &__field__msg_field {
     width: 100%;
