@@ -23,6 +23,9 @@
   .main__container {
     background: white;
     display: grid;
+    display: -ms-grid;
+    //-ms-grid-columns: 1fr 1fr 1fr;
+    //-ms-grid-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas:
             "greyGroup greyGroup greyGroup"
             "greyGroup greyGroup greyGroup"
@@ -34,66 +37,134 @@
             "coolgenius point vector";
 
     grid-gap: 10px;
-    grid-template-columns: 1fr 1fr 1fr; //костыль?
+    grid-template-columns: 1fr 1fr 1fr; // :( так и не придумала что тут сделать
     padding: 10px 12px 10px 13px;
 
     &__grey_group {
+
       grid-area: greyGroup;
+      display: -ms-grid;
       display: grid;
+      -ms-grid-columns: 1fr 1fr;
+      -ms-grid-rows: 241px 241px;
       grid-template-areas:
               "genius feeling"
               "genius moreno";
 
       grid-template-columns: 2.03fr 1fr;  //костыль?
       grid-gap: 10px;
-      &__genius {
-        @include createTile(492px, #A2A9B7, genius);
-        color: white;
-        &__text {
-          text-align: center;
-          font-size: 18.1121px;
-          line-height: 26px;
-          padding: 30px 46px 53px 25px;
-        }
-      }
-      &__moreno {
-        @include createTile(241px, #A2A9B7, moreno);
-        color: white;
-      }
-      &__feeling {
-        @include createTile(241px, #A2A9B7, feeling);
-        color: white;
-      }
+
     }
 
+    &__grey_group__genius {
+      -ms-grid-column: 1;
+      -ms-grid-row: 1;
+      @include createTile(492px, #A2A9B7, genius);
+      color: white;
+      &__text {
+        text-align: center;
+        font-size: 18.1121px;
+        line-height: 26px;
+        padding: 30px 46px 53px 25px;
+      }
+    }
+    &__grey_group__moreno {
+      -ms-grid-column: 2;
+      -ms-grid-row: 1;
+      @include createTile(241px, #A2A9B7, moreno);
+      color: white;
+    }
+    &__grey_group__feeling {
+      -ms-grid-column: 2;
+      -ms-grid-row: 2;
+      @include createTile(241px, #A2A9B7, feeling);
+      color: white;
+    }
     &__staff {
+      -ms-grid-column: 1;
+      -ms-grid-row: 3;
       @include createTile(155px, #E8EBED, staff);
     }
     &__unlight {
+      -ms-grid-column: 2;
+      -ms-grid-row: 3;
       @include createTile(155px, #E8EBED, unlight);
     }
     &__conformism {
+      -ms-grid-column: 1;
+      -ms-grid-row: 4;
+      -ms-grid-column-span:2;
       @include createTile(155px, #E8EBED, conformism);
     }
 
     &__our_yellow_staff {
+      -ms-grid-column: 3;
+      -ms-grid-row: 4;
       @include createTile(155px, #FEBF26, ouryellowstaff);
     }
 
     &__introjection {
+      -ms-grid-column: 3;
+      -ms-grid-row: 3;
       @include createTile(155px, #90BCE8, introjection);
     }
     &__modern {
+      -ms-grid-column: 1;
+      -ms-grid-row: 5;
       @include createTile(241px, #E3EBD3, modern);
     }
     &__ship {
+      -ms-grid-column: 1;
+      -ms-grid-row: 6;
       height: 241px;
+      grid-area: ship;
+      opacity: 1;
+      position:relative;
+    }
+    &__ship__exclamation {
+      position:absolute;
+      width: 61px;
+      height: 61px;
+      left: 90px;
+      bottom: 90px;
+      right: 90px;
+      top: 90px;
+      background: white;
+      border-radius: 50%;
+      display: none;
+      color: #F55E62;
+      font-size: 36px;
+      text-align: center;
+      padding-top: 20px;
+
+    }
+
+    &__ship__blur {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       background-image: url("../assets/ship.png");
       background-size: 100% 100%;
-      grid-area: ship;
       color: white;
     }
+
+    &__ship__blur:hover {
+      cursor: pointer;
+      filter: blur(8px); //не работает в IE :(
+      //filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='3'); //не работает
+    }
+
+    &__ship__blur:hover + &__ship__exclamation {
+      z-index: 9999;
+      display: block;
+    }
+
     &__form {
+
+      -ms-grid-column: 2;
+      -ms-grid-row: 5;
       @include createTile(492px, #E3EBD3, form);
 
       &__wrapper {
@@ -113,18 +184,29 @@
       }
     }
     &__leader {
+      -ms-grid-column: 1;
+      -ms-grid-row: 7;
       @include createTile(155px, #FFAA87, leader);
     }
     &__but {
+      -ms-grid-column: 2;
+      -ms-grid-row: 7;
+      -ms-grid-column-span: 2;
       @include createTile(155px, #FFAA87, but);
     }
     &__cool_genius {
+      -ms-grid-column: 1;
+      -ms-grid-row: 8;
       @include createTile(155px, #F55E62, coolgenius);
     }
     &__point {
+      -ms-grid-column: 2;
+      -ms-grid-row: 8;
       @include createTile(155px, #FFAA87, point);
     }
     &__vector {
+      -ms-grid-column: 3;
+      -ms-grid-row: 8;
       @include createTile(155px, #C7ABD4, vector);
     }
 
@@ -165,28 +247,30 @@
 
       grid-template-columns: 2.1fr 1fr; //костыль?
       grid-gap: 10px;
-      &__genius {
-        background: #A2A9B7;
-        height: 211px;
-        grid-area: genius;
-        color: white;
-        overflow: scroll;
-        &__text {
-          text-align: center;
-          font-size: 18.1121px;
-          line-height: 26px;
-          padding: 19.78px 2.69px 2.61px 9.9px;
-        }
 
+    }
+
+    &__grey_group__genius {
+      background: #A2A9B7;
+      height: 211px;
+      grid-area: genius;
+      color: white;
+      overflow: scroll;
+      &__text {
+        text-align: center;
+        font-size: 18.1121px;
+        line-height: 26px;
+        padding: 19.78px 2.69px 2.61px 9.9px;
       }
-      &__moreno {
-        @include createTile(100.5px, #A2A9B7, moreno);
-        color: white;
-      }
-      &__feeling {
-        @include createTile(100.5px, #A2A9B7, feeling);
-        color: white;
-      }
+
+    }
+    &__grey_group__moreno {
+      @include createTile(100.5px, #A2A9B7, moreno);
+      color: white;
+    }
+    &__grey_group__feeling {
+      @include createTile(100.5px, #A2A9B7, feeling);
+      color: white;
     }
 
     &__staff {

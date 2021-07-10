@@ -1,8 +1,15 @@
 @import "variables";
 @import "mixins";
+.square {
+  border: $border;
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg);
+  background: #F1F3F5;
+}
+
 
 .chat {
-  position: relative;
   max-width: 980px;
   width: 100%;
   height: 883px;
@@ -27,48 +34,60 @@
     box-shadow: -8px 14px 17px -5px rgba(34, 60, 80, 0.4);
 
     &__correspondence {
-      max-height: 530px;
+      max-height: 520px;
+      height: 520px;
       overflow-y: auto;
+
     }
   }
 
+  &__field__correspondence__list {
+    margin: 30px 20px 0 20px;
+  }
 
-  &__field__correspondence__left_message_block {
-
+  &__field__correspondence__list__left_message {
     overflow-y: hidden;
-    padding: 35px 0 0 18px;
+    list-style-type: none;
     display: flex;
     flex-direction: row;
+    margin-bottom: 20px;
   }
 
-  &__field__correspondence__right_message_block {
+  &__field__correspondence__list__right_message {
     overflow-y: hidden;
-    padding: 20px 18px 0 0;
+    list-style-type: none;
     display: flex;
     flex-direction: row-reverse;
+    margin-bottom: 20px;
   }
 
-  &__field__correspondence__right_message_block__message,
-  &__field__correspondence__left_message_block__message {
-    @include chatMessage();
-  }
+  &__field__correspondence__list__right_message__avatar,
+  &__field__correspondence__list__left_message__avatar {
 
-
-  &__field__correspondence__left_message_block__avatar,
-  &__field__correspondence__right_message_block__avatar {
     width: 47px;
     height: 47px;
-    background-image: url("../assets/avatar.png");
+    //clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);//тоже не поддерживается IE :(
+    //background-size: 100%;
+    //-webkit-clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%); //не поддерживается 70% браузеров
+    //clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
   }
 
-  &__field__correspondence__left_message_block__message__text,
-  &__field__correspondence__right_message_block__message__text{
-    margin: 15px 15px 7px 15px;
+  &__field__correspondence__list__left_message__msg {
+
+    padding: 15px 15px 7px 15px;
+    @include chatMessage();
+
+  }
+
+  &__field__correspondence__list__right_message__msg {
+
+    padding: 15px 15px 7px 15px;
+    @include chatMessage();
+    margin-right: 18px;
   }
 
   &__field__msg_field {
     width: 100%;
-    height: 227px;
     display: flex;
     flex-direction: column;
     padding: 20px;
