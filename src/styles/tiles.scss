@@ -24,8 +24,7 @@
     background: white;
     display: grid;
     display: -ms-grid;
-    //-ms-grid-columns: 1fr 1fr 1fr;
-    //-ms-grid-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    -ms-grid-columns: 1fr 1fr 1fr;
     grid-template-areas:
             "greyGroup greyGroup greyGroup"
             "greyGroup greyGroup greyGroup"
@@ -40,18 +39,22 @@
     grid-template-columns: 1fr 1fr 1fr; // :( так и не придумала что тут сделать
     padding: 10px 12px 10px 13px;
 
-    &__grey_group {
 
-      grid-area: greyGroup;
+    &__grey_group {
       display: -ms-grid;
-      display: grid;
-      -ms-grid-columns: 1fr 1fr;
+      -ms-grid-column: 1;
+      -ms-grid-row: 1;
+      -ms-grid-column-span: 3;
+      -ms-grid-row-span: 2;
+      -ms-grid-columns: 2.03fr 1fr; //great_kostil again
       -ms-grid-rows: 241px 241px;
+      grid-area: greyGroup;
+      display: grid;
       grid-template-areas:
               "genius feeling"
               "genius moreno";
 
-      grid-template-columns: 2.03fr 1fr;  //костыль?
+      grid-template-columns: 2.03fr 1fr;  //костыль(!)
       grid-gap: 10px;
 
     }
@@ -61,6 +64,7 @@
       -ms-grid-row: 1;
       @include createTile(492px, #A2A9B7, genius);
       color: white;
+
       &__text {
         text-align: center;
         font-size: 18.1121px;
@@ -68,28 +72,33 @@
         padding: 30px 46px 53px 25px;
       }
     }
+
     &__grey_group__moreno {
       -ms-grid-column: 2;
       -ms-grid-row: 1;
       @include createTile(241px, #A2A9B7, moreno);
       color: white;
     }
+
     &__grey_group__feeling {
       -ms-grid-column: 2;
       -ms-grid-row: 2;
       @include createTile(241px, #A2A9B7, feeling);
       color: white;
     }
+
     &__staff {
       -ms-grid-column: 1;
       -ms-grid-row: 3;
       @include createTile(155px, #E8EBED, staff);
     }
+
     &__unlight {
       -ms-grid-column: 2;
       -ms-grid-row: 3;
       @include createTile(155px, #E8EBED, unlight);
     }
+
     &__conformism {
       -ms-grid-column: 1;
       -ms-grid-row: 4;
@@ -108,11 +117,13 @@
       -ms-grid-row: 3;
       @include createTile(155px, #90BCE8, introjection);
     }
+
     &__modern {
       -ms-grid-column: 1;
       -ms-grid-row: 5;
       @include createTile(241px, #E3EBD3, modern);
     }
+    // -------------- HOVER START -------------- //
     &__ship {
       -ms-grid-column: 1;
       -ms-grid-row: 6;
@@ -121,6 +132,7 @@
       opacity: 1;
       position:relative;
     }
+
     &__ship__exclamation {
       position:absolute;
       width: 61px;
@@ -136,7 +148,6 @@
       font-size: 36px;
       text-align: center;
       padding-top: 20px;
-
     }
 
     &__ship__blur {
@@ -161,10 +172,13 @@
       display: block;
     }
 
-    &__form {
+    // -------------- HOVER END -------------- //
 
+    &__form {
       -ms-grid-column: 2;
       -ms-grid-row: 5;
+      -ms-grid-row-span: 2;
+      -ms-grid-column-span: 2;
       @include createTile(492px, #E3EBD3, form);
 
       &__wrapper {
@@ -188,6 +202,7 @@
       -ms-grid-row: 7;
       @include createTile(155px, #FFAA87, leader);
     }
+
     &__but {
       -ms-grid-column: 2;
       -ms-grid-row: 7;
@@ -199,6 +214,7 @@
       -ms-grid-row: 8;
       @include createTile(155px, #F55E62, coolgenius);
     }
+
     &__point {
       -ms-grid-column: 2;
       -ms-grid-row: 8;
@@ -210,8 +226,41 @@
       @include createTile(155px, #C7ABD4, vector);
     }
 
-  }
+    // -------------- IE custom grid-gap -------------- //
 
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+      &__grey_group {
+        margin-bottom: 10px;
+      }
+    }
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+      &__grey_group__genius,
+      &__conformism,
+      &__modern,
+      &__ship,
+      &__leader {
+        margin: 0 10px 10px 0;
+      }
+    }
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+      &__grey_group__feeling,
+      &__introjection {
+        margin-top: 10px;
+      }
+    }
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+      &__staff,
+      &__unlight{
+        margin: 10px 10px 10px 0;
+      }
+    }
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+      &__cool_genius,
+      &__point {
+        margin-right: 10px;
+      }
+    }
+  }
 }
 
 @media (max-width: 480px) {
@@ -223,7 +272,9 @@
   }
 
   .main__container {
-
+    background: white;
+    display: -ms-grid;
+    -ms-grid-columns: 1fr 1fr;
     display: grid;
     grid-template-areas: "staff unlight"
                           "conformism conformism"
@@ -235,22 +286,31 @@
                           "leader coolgenius";
 
     grid-gap: 10px;
-    grid-template-columns: 48.9% 48.9%; //костыль?
+    grid-template-columns: 48.9% 48.9%; //костыль
     padding: 10px 0 10px 0;
 
     &__grey_group {
+      display: -ms-grid;
+      -ms-grid-column: 1;
+      -ms-grid-row: 4;
+      -ms-grid-column-span: 2;
+      -ms-grid-row-span: 1;
+      -ms-grid-columns: 2fr 1fr; //great_kostil again
       grid-area: greyGroup;
       display: grid;
       grid-template-areas:
               "genius feeling"
               "genius moreno";
 
-      grid-template-columns: 2.1fr 1fr; //костыль?
+      grid-template-columns: 2.1fr 1fr; //костыль
       grid-gap: 10px;
 
     }
 
     &__grey_group__genius {
+      -ms-grid-column: 1;
+      -ms-grid-row: 1;
+      -ms-grid-row-span: 2;
       background: #A2A9B7;
       height: 211px;
       grid-area: genius;
@@ -262,35 +322,51 @@
         line-height: 26px;
         padding: 19.78px 2.69px 2.61px 9.9px;
       }
-
     }
     &__grey_group__moreno {
+      -ms-grid-column: 2;
+      -ms-grid-row: 1;
       @include createTile(100.5px, #A2A9B7, moreno);
       color: white;
     }
     &__grey_group__feeling {
+      -ms-grid-column: 2;
+      -ms-grid-row: 2;
       @include createTile(100.5px, #A2A9B7, feeling);
       color: white;
     }
 
     &__staff {
+      -ms-grid-column: 1;
+      -ms-grid-row: 1;
       @include createTile(155px, #E8EBED, staff);
     }
+
     &__unlight {
+      -ms-grid-column: 2;
+      -ms-grid-row: 1;
       @include createTile(155px, #E8EBED, unlight);
     }
-    &__conformism {
-      @include createTile(155px, #E8EBED, conformism);
 
+    &__conformism {
+      -ms-grid-column: 1;
+      -ms-grid-row: 2;
+      -ms-grid-column-span: 2;
+      @include createTile(155px, #E8EBED, conformism);
     }
 
     &__our_yellow_staff {
+      -ms-grid-column: 2;
+      -ms-grid-row: 3;
       @include createTile(155px, #FEBF26, ouryellowstaff);
     }
 
     &__introjection {
+      -ms-grid-column: 1;
+      -ms-grid-row: 3;
       @include createTile(155px, #90BCE8, introjection);
     }
+    // -------------- DISPLAY: NONE START -------------- //
     &__modern {
       display: none;
       &__text {
@@ -307,21 +383,73 @@
       display: none;
     }
 
+    // -------------- DISPLAY: NONE END -------------- //
+
     &__leader {
+      -ms-grid-column: 1;
+      -ms-grid-row: 7;
       @include createTile(155px, #FFAA87, leader);
     }
+
     &__but {
+      -ms-grid-column: 1;
+      -ms-grid-row: 5;
+      -ms-grid-column-span: 2;
       @include createTile(155px, #FFAA87, but);
     }
+
     &__cool_genius {
+      -ms-grid-column: 2;
+      -ms-grid-row: 7;
       @include createTile(155px, #F55E62, coolgenius);
     }
+
     &__point {
+      -ms-grid-column: 1;
+      -ms-grid-row: 6;
       @include createTile(155px, #FFAA87, point);
     }
+
     &__vector {
+      -ms-grid-column: 2;
+      -ms-grid-row: 6;
       @include createTile(155px, #C7ABD4, vector);
     }
 
+    // -------------- IE custom grid-gap -------------- //
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+      &__grey_group,
+      &__unlight,
+      &__but,
+      &__conformism {
+        margin-bottom: 10px;
+      }
+    }
+
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+      &__grey_group__feeling {
+        margin: 10px 0 0 10px;
+      }
+    }
+
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+      &__grey_group__moreno {
+        margin-left: 10px;
+      }
+    }
+
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+      &__staff,
+      &__leader {
+        margin-right: 10px;
+      }
+    }
+
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+      &__point,
+      &__introjection {
+        margin: 0 10px 10px 0;
+      }
+    }
   }
 }
