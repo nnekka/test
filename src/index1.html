@@ -2,121 +2,162 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title><%= htmlWebpackPlugin.options.title %></title>
-  <style>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <style>
 
-  </style>
+    </style>
 </head>
 
 <body>
 <div class="chat">
-  <div class="chat__field">
-    <div class="chat__field__correspondence">
-      <div class="chat__field__correspondence__left_message_block">
-        <div class="chat__field__correspondence__left_message_block__avatar">
+    <div class="chat__field">
+        <section class="chat__field__correspondence">
+            <ul class="chat__field__correspondence__list">
+                <li class="chat__field__correspondence__list__left_message">
+                    <div class="chat__field__correspondence__list__left_message__avatar">
+                        <svg width="47" height="47" viewBox="0 0 47 47">
+                            <defs>
+                                <clipPath id="shape">
+                                    <path d="M10,47 L37,47 L47,20 L24,0 L0,20z"/>
+                                </clipPath>
+                            </defs>
+                            <image
+                                    clip-path="url(#shape)" xlink:href="./assets/avatar.png"
+                                    x="0" y="0"
+                                    height="47px"
+                                    width="47px"
+                            />
+                        </svg>
+                    </div>
+                    <div class="square"></div>
+                    <div class="chat__field__correspondence__list__left_message__msg">
+                        Это означает, что в Вашем доме, офисе, кабинете, мастерской
+                        хранятся ценности бóльшие, чем просто деньги или драгоценности, -
+                        культурные ценности. Произведения искусства, антиквариат, иные
+                        предметы коллекционирования – все это имущество, безусловно высокая
+                        стоимость которого.
+                    </div>
 
-        </div>
-        <div class="chat__field__correspondence__left_message_block__message">
-          <div class="chat__field__correspondence__left_message_block__message__text">
-            Это означает, что в Вашем доме, офисе, кабинете, мастерской
-            хранятся ценности бóльшие, чем просто деньги или драгоценности, -
-            культурные ценности. Произведения искусства, антиквариат, иные
-            предметы коллекционирования – все это имущество, безусловно высокая
-            стоимость которого.
-          </div>
-        </div>
-      </div>
+                </li>
 
-      <div class="chat__field__correspondence__right_message_block">
-        <div class="chat__field__correspondence__right_message_block__avatar">
+                <li class="chat__field__correspondence__list__right_message">
+                    <div class="chat__field__correspondence__list__right_message__avatar">
+                        <svg width="47" height="47" viewBox="0 0 47 47">
+                            <defs>
+                                <clipPath id="shape">
+                                    <path d="M10,47 L37,47 L47,20 L24,0 L0,20z"/>
+                                </clipPath>
+                            </defs>
+                            <image
+                                    clip-path="url(#shape)" xlink:href="./assets/avatar.png"
+                                    x="0" y="0"
+                                    height="47px"
+                                    width="47px"
+                            />
+                        </svg>
+                    </div>
+                    <div class="chat__field__correspondence__list__right_message__msg">
+                        Это означает,
 
-        </div>
-        <div class="chat__field__correspondence__right_message_block__message">
-          <div class="chat__field__correspondence__right_message_block__message__text">
-            Это означает,
-          </div>
-        </div>
-      </div>
+                    </div>
 
-      <div class="chat__field__correspondence__left_message_block">
-        <div class="chat__field__correspondence__left_message_block__avatar">
+                </li>
 
-        </div>
-        <div class="chat__field__correspondence__left_message_block__message">
-          <div class="chat__field__correspondence__left_message_block__message__text">
-            доме, офисе, кабинете, мастерской
-          </div>
-        </div>
-      </div>
+                <li class="chat__field__correspondence__list__left_message">
+                    <div class="chat__field__correspondence__list__left_message__avatar">
+                        <svg width="47" height="47" viewBox="0 0 47 47">
+                            <defs>
+                                <clipPath id="shape">
+                                    <path d="M10,47 L37,47 L47,20 L24,0 L0,20z"/>
+                                </clipPath>
+                            </defs>
+                            <image
+                                    clip-path="url(#shape)" xlink:href="./assets/avatar.png"
+                                    x="0" y="0"
+                                    height="47px"
+                                    width="47px"
+                            />
+                        </svg>
+                    </div>
+                    <div class="chat__field__correspondence__list__left_message__msg">
+                        доме, офисе, кабинете, мастерской
+                    </div>
 
-      <div class="chat__field__correspondence__right_message_block">
-        <div class="chat__field__correspondence__right_message_block__avatar">
+                </li>
 
-        </div>
-        <div class="chat__field__correspondence__right_message_block__message">
-          <div class="chat__field__correspondence__right_message_block__message__text">
-            Это означает,
-          </div>
-        </div>
-      </div>
+                <div class="chat__field__correspondence__line_block">
+                    21 октября 2017
+                </div>
 
-      <div class="chat__field__correspondence__left_message_block">
-        <div class="chat__field__correspondence__left_message_block__avatar">
+                <li class="chat__field__correspondence__list__right_message">
+                    <div class="chat__field__correspondence__list__right_message__avatar">
+                        <svg width="47" height="47" viewBox="0 0 47 47">
+                            <defs>
+                                <clipPath id="shape">
+                                    <path d="M10,47 L37,47 L47,20 L24,0 L0,20z"/>
+                                </clipPath>
+                            </defs>
+                            <image
+                                    clip-path="url(#shape)" xlink:href="./assets/avatar.png"
+                                    x="0" y="0"
+                                    height="47px"
+                                    width="47px"
+                            />
+                        </svg>
+                    </div>
+                    <div class="chat__field__correspondence__list__right_message__msg">
+                        Это означает,
+                    </div>
 
-        </div>
-        <div class="chat__field__correspondence__left_message_block__message">
-          <div class="chat__field__correspondence__left_message_block__message__text">
-            доме, офисе, кабинете, мастерской
-          </div>
-        </div>
-      </div>
+                </li>
 
-      <div class="chat__field__correspondence__line_block">
-        21 октября 2017
-      </div>
+                <li class="chat__field__correspondence__list__left_message">
+                    <div class="chat__field__correspondence__list__left_message__avatar">
+                        <svg width="47" height="47" viewBox="0 0 47 47">
+                            <defs>
+                                <clipPath id="shape">
+                                    <path d="M10,47 L37,47 L47,20 L24,0 L0,20z"/>
+                                </clipPath>
+                            </defs>
+                            <image
+                                    clip-path="url(#shape)" xlink:href="./assets/avatar.png"
+                                    x="0" y="0"
+                                    height="47px"
+                                    width="47px"
+                            />
+                        </svg>
+                    </div>
+                    <div class="chat__field__correspondence__list__left_message__msg">
+                        доме, офисе, кабинете, мастерской
+                    </div>
 
-      <div class="chat__field__correspondence__right_message_block">
-        <div class="chat__field__correspondence__right_message_block__avatar">
+                </li>
+            </ul>
+        </section>
 
-        </div>
-        <div class="chat__field__correspondence__right_message_block__message">
-          <div class="chat__field__correspondence__right_message_block__message__text">
-            Это означает,
-          </div>
-        </div>
-      </div>
 
-      <div class="chat__field__correspondence__left_message_block">
-        <div class="chat__field__correspondence__left_message_block__avatar">
+        <hr class="chat__divider"/>
 
-        </div>
-        <div class="chat__field__correspondence__left_message_block__message">
-          <div class="chat__field__correspondence__left_message_block__message__text">
-            доме, офисе, кабинете, мастерской
-          </div>
-        </div>
-      </div>
+        <section class="chat__field__msg_field">
+
+            <textarea class="chat__field__msg_field__textarea"></textarea>
+
+            <button class="chat__field__msg_field__button">Отправить</button>
+        </section>
 
     </div>
-
-    <hr class="chat__divider"/>
-
-    <div class="chat__field__msg_field">
-
-      <textarea class="chat__field__msg_field__textarea"></textarea>
-
-      <button class="chat__field__msg_field__button">Отправить</button>
-    </div>
-  </div>
-
 </div>
-  <div class="link">
+<div class="link">
     <a href="index.html">Обратно к плиткам</a>
-  </div>
+</div>
+<div class="link">
+    <a href="index2.html">чат_2</a>
+</div>
+
 
 </body>
 
